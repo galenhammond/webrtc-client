@@ -21,7 +21,7 @@ class PeerConnection {
     this._peerConnection = new RTCPeerConnection({
       iceServers: [
         {
-          urls: ["turn:13.59.172.9:3478?transport=tcp"],
+          urls: ["turn:13.59.172.95:3478?transport=tcp"],
           username: process.env.REACT_APP_TURN_USERNAME,
           credential: process.env.REACT_APP_TURN_PASSWORD,
         },
