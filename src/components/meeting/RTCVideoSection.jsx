@@ -38,10 +38,12 @@ function RTCVideoSection({ meetingId }) {
       pc.connection.addEventListener("track", (ev) => {
         remoteStreamRef.current.srcObject = ev.streams[0];
       });
+      remoteStream.current.volume = 1.0;
     });
 
     const localStream = localStreamRef.current;
     const remoteStream = remoteStreamRef.current;
+
     return () => {
       localStream.srcObject.getTracks().forEach((track) => {
         track.stop();
