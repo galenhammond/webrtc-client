@@ -35,12 +35,12 @@ function HomePage(props) {
     if (!meetingId) {
       return;
     }
-    //setShowCaptcha(true);
-    navigate(`/${meetingId}`, {
+    setShowCaptcha(true);
+    /* navigate(`/${meetingId}`, {
       state: {
         meetingId: meetingId,
       },
-    });
+    }); */
   };
 
   const _handleOnKeyDown = (e) => {
@@ -67,14 +67,6 @@ function HomePage(props) {
         styles={"space-y-10 flex-col text-center items-center h-screen"}
         padded
       >
-        {/*
-      <h2 className="font-bold text-5xl">Your Personal Meeting Code is</h2>
-
-      <div className="flex flex-row">
-        <p className="font-semibold text-xl">{meetingId}</p>
-        <Link to={`/${meetingId}`}>Start Meeting</Link>
-      </div>
-      */}
         <h2 className="max-w-max py-1 min-h-max font-bold text-5xl bg-gradient-to-r from-cyan-700 via-sky-500 to-blue-400 bg-clip-text text-transparent">
           Let's Have a Conversation.
         </h2>
@@ -104,7 +96,7 @@ function HomePage(props) {
             />
             <p>
               By joining this meeting, you agree to Mumbl's{" "}
-              <Link to={"/"} className="text-blue-500">
+              <Link to={"/terms"} className="text-blue-500">
                 terms and conditions
               </Link>
             </p>

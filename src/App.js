@@ -8,6 +8,7 @@ import FooterContainer from "./components/footer/FooterContainer";
 import MeetingPage from "./pages/MeetingPage";
 import { Provider } from "react-redux";
 import GlobalStore from "./components/redux/Store";
+import TermsOfUse from "./pages/TermsOfUse";
 
 function App() {
   var isLoading = true;
@@ -25,6 +26,7 @@ function App() {
               <Routes>
                 <Route path={"/:meetingId"} element={<MeetingPage />} />
                 <Route path={"/"} element={<HomePage />} />
+                <Route path={"/terms"} element={<TermsOfUse />} />
               </Routes>
               <FooterContainer />
             </main>
