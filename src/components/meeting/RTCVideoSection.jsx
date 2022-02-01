@@ -58,14 +58,12 @@ function RTCVideoSection({ meetingId }) {
           poster={
             "https://thumbs.gfycat.com/AfraidElementaryCowrie-max-1mb.gif"
           }
-          muted
           autoPlay
           playsInline
           ref={remoteStreamRef}
           className="bg-black w-screen md:w-full md:max-h-[32rem] object-contain rounded-xl"
         />
         <video
-          muted
           autoPlay
           playsInline
           ref={localStreamRef}
