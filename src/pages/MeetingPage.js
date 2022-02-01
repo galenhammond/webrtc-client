@@ -15,8 +15,9 @@ function MeetingPage() {
     : location.pathname.replace(/\//g, "");
 
   const _handleCopy = (e) => {
-    navigator.clipboard.writeText(meetingId);
-    //window.location.protocol + "//" + window.location.host + location.pathname
+    navigator.clipboard.writeText(
+      window.location.protocol + "//" + window.location.host + location.pathname
+    );
     toast("Meeting URL copied to clipboard", {
       hideProgressBar: true,
       className: "font-medium",
