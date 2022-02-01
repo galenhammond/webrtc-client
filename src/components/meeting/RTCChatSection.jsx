@@ -16,7 +16,7 @@ function RTCChatSection(props) {
   var sendQueue = [];
 
   const _handleSend = (e) => {
-    if (!inputValue) return;
+    if (/^\s*$/.test(inputValue)) return;
     const message = {
       payload: inputValue,
       origin: "LOCAL_USER",
