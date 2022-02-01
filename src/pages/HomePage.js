@@ -16,12 +16,19 @@ function HomePage(props) {
   }, []);
 
   const _handleSubmit = (e) => {
-    const format = /[ `! @#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    const error = format.test(meetingId);
-    if (error) {
+    const symbolFormat = /[ `! @#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const symbolError = symbolFormat.test(meetingId);
+    if (symbolError) {
       setErrorState({
         error: true,
         message: "Meeting ID must not include special characters or spaces",
+      });
+      return;
+    }
+    if (meetingId.length > 10) {
+      setErrorState({
+        error: true,
+        message: "Meeting ID must be between 1 and 10 characters",
       });
       return;
     }
