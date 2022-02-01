@@ -11,6 +11,10 @@ function HomePage(props) {
   const [errorState, setErrorState] = useState();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "Mumbl, Share and Learn";
+  }, []);
+
   const _handleSubmit = (e) => {
     const format = /[ `! @#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     const error = format.test(meetingId);

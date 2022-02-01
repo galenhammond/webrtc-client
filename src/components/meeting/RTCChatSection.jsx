@@ -16,12 +16,13 @@ function RTCChatSection(props) {
   var sendQueue = [];
 
   const _handleSend = (e) => {
+    if (!inputValue) return;
     const message = {
       payload: inputValue,
       origin: "LOCAL_USER",
       timestamp: Date.now(),
     };
-
+    setInputValue("");
     dispatch(addToMessages(message));
 
     switch (dataChannel.readyState) {
@@ -40,8 +41,8 @@ function RTCChatSection(props) {
       default:
         console.log(dataChannel.readyState);
     }
-    setInputValue("");
-    chatBox.current.scrollIntoView({ behavior: "smooth" });
+
+    //chatBox.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const _handleOnKeyDown = (e) => {
@@ -54,11 +55,8 @@ function RTCChatSection(props) {
     <div className="flex flex-col w-full md:w-[25rem] max-h-full grow-0 space-y-4">
       <section className="h-[30vh] md:h-[72vh] flex flex-col border-slate-200 border-4 rounded-br-lg rounded-tl-2xl rounded-bl-2xl rounded-tr-lg">
         <Message type={"PROMPT"} message={{ payload: conversationPrompt }} />
-        <section
-          ref={chatBox}
-          className="w-full h-full overflow-y-scroll overflow-x-hidden break-all rounded "
-        >
-          <ul>
+        <section className="w-full h-full overflow-y-scroll overflow-x-hidden break-all rounded ">
+          <ul ref={chatBox}>
             {messages.map((message, key) => (
               <Message key={key} message={message} type={message.origin} />
             ))}

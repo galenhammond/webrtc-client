@@ -9,6 +9,10 @@ import Moment from "react-moment";
 import { useEffect } from "react";
 
 function MeetingPage() {
+  useEffect(() => {
+    document.title = `Meeting Room: ${location.pathname.replace(/\//g, "")}`;
+  }, []);
+
   const location = useLocation();
   const meetingId = location.state
     ? location.state.meetingId
