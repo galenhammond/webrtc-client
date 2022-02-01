@@ -61,14 +61,14 @@ function RTCVideoSection({ meetingId }) {
           autoPlay
           playsInline
           ref={remoteStreamRef}
-          className="bg-black w-screen md:w-full md:max-h-[32rem] object-contain rounded-xl"
+          className="bg-black w-screen md:w-full md:max-h-[32rem] object-contain rounded-xl scale-x-[-1]"
         />
         <video
           muted
           autoPlay
           playsInline
           ref={localStreamRef}
-          className="rounded-xl absolute w-2/6 max-h-full top-0 right-0 object-contain"
+          className="rounded-xl absolute w-2/6 max-h-full top-0 right-0 object-contain scale-x-[-1]"
         />
       </section>
       <div className="space-x-4">
